@@ -640,13 +640,7 @@ RCT_REMAP_METHOD(logout,
 - (id<OIDExternalUserAgent>)getExternalUserAgentWithPresentingViewController: (UIViewController *)presentingViewController
 {
   id<OIDExternalUserAgent> externalUserAgent;
-  #if TARGET_OS_MACCATALYST
-    externalUserAgent = [[OIDExternalUserAgentCatalyst alloc] initWithPresentingViewController:presentingViewController];
-  #elif TARGET_OS_IOS
-    externalUserAgent = [[OIDExternalUserAgentIOS alloc] initWithPresentingViewController:presentingViewController];
-  #elif TARGET_OS_OSX
-    externalUserAgent = [[OIDExternalUserAgentMac alloc] init];
-  #endif
+  externalUserAgent = [[OIDExternalUserAgentIOS alloc] initWithPresentingViewController:presentingViewController];
   return externalUserAgent;
 }
 
